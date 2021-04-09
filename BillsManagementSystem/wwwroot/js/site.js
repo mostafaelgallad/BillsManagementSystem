@@ -223,6 +223,15 @@ function DeleteBill(billCode) {
                     'The Item has been deleted successfully',
                     'success'
                 )
+                $.ajax({
+                    url: '/BillManagment/UpdateBillsList',
+                    type: "Get",
+                    success: function (data) {
+                        $('#billList').empty();
+                        $('#billList').html(data);
+                        $('#billsTable').DataTable();
+                    }
+                });
             } else {
                 Swal.fire(
                     '',
