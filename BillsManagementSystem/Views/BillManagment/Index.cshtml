@@ -1,0 +1,113 @@
+﻿@model IEnumerable<BillsEntity.Models.BILHDR>
+<div class="container" style="width: 100%;">
+    <div class="card" style="width: 100%;">
+        <div class="card-body" id="cardHead">
+            <h3 class="card-title font-weight-bold">Add New Bill</h3>
+            <div class="stepwizard">
+                <div class="stepwizard-row setup-panel">
+                    <div class="stepwizard-step col-xs-3">
+                        <a href="#step-1" type="button" id="step1Icon" class="btn btn-success btn-circle" disabled>1</a>
+                        <p><small>Bill Header</small></p>
+                    </div>
+                    <div class="stepwizard-step col-xs-3">
+                        <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled>2</a>
+                        <p><small>Bill Details</small></p>
+                    </div>
+                </div>
+            </div>
+
+                <div class="panel panel-primary setup-content" id="step-1">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Bill Header</h3>
+                    </div>
+
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm">
+                                <div class="form-group">
+                                    <label class="control-label">Bill Date</label>
+                                    <input class="datetimepicker form-control" required="required" id="billDate" value="" data-date-format="mm/dd/yyyy" placeholder="Bill Date">
+                                    <span class="hide text-danger" id="billDate_span">Please Select the bill date </span>
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-group">
+                                    <label for="vendors">Choose the vendor:</label>
+                                    <select id="Vendors" class="form-control">
+                                    </select>
+                                    <span class="hide text-danger" id="Vendors_span">Please Select the vendor </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm">
+                                <div class="form-group">
+                                    <label class="control-label">Image</label>
+                                    <input type="file" required="required" class="form-control" id="billImage" accept="image/*" placeholder="Add bill image" />
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="col-4 col-md-3 ">
+                                    <img id="billImagePreview" class=" picDiv">
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <button class="btn btn-primary nextBtn pull-right" id="billHeader" type="button">Next</button>
+                    </div>
+                </div>
+
+                <div class="panel panel-primary setup-content" id="step-2">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Bill Details</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm">
+                                <div class="form-group">
+                                    <label class="control-label">Bill Code</label>
+                                    <input maxlength="100" disabled type="text" required="required" id="billCode" class="form-control" value="" />
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-group">
+                                    <label for="items">Choose an item:</label>
+                                    <select id="items" class="form-control">
+                                    </select>
+                                    <span class="hide text-danger" id="items_span">Please select the item</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm">
+                                <div class="form-group">
+                                    <label class="control-label">Item Price</label>
+                                    <input maxlength="100" disabled type="text" required="required" class="form-control" id="itemPrice" value="" />
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-group">
+                                    <label class="control-label">Item Quantity</label>
+                                    <input maxlength="100" type="number" required="required" id="itemQuantity" class="form-control" value="" />
+                                    <span class="hide text-danger" id="itemQuantity_span">Please enter the item quantity </span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-success pull-right" id="finish">Finish</button>
+                        <button class="btn btn-primary pull-right" id="addItem">Add Item</button>
+                    </div>
+                </div>
+            
+        </div>
+    </div>
+
+    <div class="card" style="width:100%;">
+        <div class="card-body">
+            <h3 class="card-title font-weight-bold">All Bills</h3>
+            <div id="billList">
+                <partial name="PV_BillingList" model="Model" />
+            </div>
+        </div>
+    </div>
+</div>

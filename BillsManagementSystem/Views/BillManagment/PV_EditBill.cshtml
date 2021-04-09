@@ -1,0 +1,82 @@
+﻿<div class="card" style="width: 100%;">
+    <div class="card-body" id="cardHead">
+        <h3 class="card-title font-weight-bold">Add New Bill</h3>
+        <div class="panel panel-primary setup-content" id="step-1">
+            <div class="panel-heading">
+                <h3 class="panel-title">Bill Header</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="form-group">
+                            <label class="control-label">Bill Date</label>
+                            <input class="datetimepicker form-control" required="required" id="billDate" value="" data-date-format="mm/dd/yyyy" placeholder="Bill Date">
+                            <span class="hide text-danger" id="billDate_span">Please Select the bill date </span>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <div class="form-group">
+                            <label for="vendors">Choose the vendor:</label>
+                            <select id="Vendors" class="form-control">
+                            </select>
+                            <span class="hide text-danger" id="Vendors_span">Please Select the vendor </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="form-group">
+                            <label class="control-label">Image</label>
+                            <input type="file" required="required" class="form-control" id="billImage" accept="image/*" placeholder="Add bill image" />
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <div class="col-4 col-md-3 ">
+                            <img id="billImagePreview" class=" picDiv">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-primary setup-content" id="step-2">
+            <div class="panel-heading">
+                <h3 class="panel-title">Bill Details</h3>
+            </div>
+            <div class="panel-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Item name</th>
+                            <th scope="col">Item price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>Otto</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>Thornton</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td>the Bird</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="btn btn-success pull-right" id="finish">Finish</button>
+            </div>
+        </div>
+
+    </div>
+</div>
