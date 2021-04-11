@@ -26,11 +26,6 @@ namespace BillsManagementSystem.Controllers
             return View(bills.Data);
         }
 
-        public IActionResult Test()
-        {
-            return View();
-        }
-
         public IActionResult formTest(IEnumerable<formViewModel> model)
         { 
             var gh = Request.Query["itemPrice"];
