@@ -37,9 +37,26 @@ namespace BillsDAL.Repositories
             return DB.BILHDRs.Include(b => b.BILDTLs).FirstOrDefault(i => i.BILCOD == billCode);
         }
 
+        public BILDTL GetBillItemByItemCode(int itemCode)
+        {
+            return DB.BILDTLs.Include(b => b.ITMCODNavigation).FirstOrDefault(i => i.ITMCOD == itemCode);
+        }
+
         public IEnumerable<BILDTL> GetBillDetailByBillCode(int billCode)
         {
             return DB.BILDTLs.Include(b => b.BILCODNavigation).Include(b => b.ITMCODNavigation).Where(b => b.BILCOD == billCode);
+        }
+
+        public BILHDR GetBillByBillCode(int billCode)
+        {
+            try
+            {
+                return DB.BILHDRs.Include(b => b.VNDCODNavigation).Include(d=>d.BILDTLs).FirstOrDefault(b => b.BILCOD == billCode);
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
 
         public bool DeleteBillByBillCode(int billCode)

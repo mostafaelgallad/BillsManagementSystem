@@ -1,82 +1,57 @@
-﻿<div class="card" style="width: 100%;">
+﻿@model BillsEntity.Models.BILHDR
+
+<div class="card" style="width: 100%;">
     <div class="card-body" id="cardHead">
-        <h3 class="card-title font-weight-bold">Add New Bill</h3>
-        <div class="panel panel-primary setup-content" id="step-1">
-            <div class="panel-heading">
-                <h3 class="panel-title">Bill Header</h3>
-            </div>
-            <div class="panel-body">
+        <h3 class="card-title font-weight-bold">Update Bill</h3>
+        <div class="container">
                 <div class="row">
-                    <div class="col-sm">
-                        <div class="form-group">
-                            <label class="control-label">Bill Date</label>
-                            <input class="datetimepicker form-control" required="required" id="billDate" value="" data-date-format="mm/dd/yyyy" placeholder="Bill Date">
-                            <span class="hide text-danger" id="billDate_span">Please Select the bill date </span>
-                        </div>
+                    <div class="col-sm-6">
+                        <h3 class="text-lg-left">Vendor: @Model.VNDCODNavigation?.VNDNAM</h3>
+                        <p class="pull-left">Bill Price: @Model.BILPRC</p>
                     </div>
-                    <div class="col-sm">
-                        <div class="form-group">
-                            <label for="vendors">Choose the vendor:</label>
-                            <select id="Vendors" class="form-control">
-                            </select>
-                            <span class="hide text-danger" id="Vendors_span">Please Select the vendor </span>
-                        </div>
+                    <div class="col-sm-6">
+                        <h3 class="text-lg-right">Bill @Model.BILCOD</h3>
+                        <p class="pull-right">Bill date: @Model.BILDAT</p>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm">
-                        <div class="form-group">
-                            <label class="control-label">Image</label>
-                            <input type="file" required="required" class="form-control" id="billImage" accept="image/*" placeholder="Add bill image" />
-                        </div>
-                    </div>
-                    <div class="col-sm">
-                        <div class="col-4 col-md-3 ">
-                            <img id="billImagePreview" class=" picDiv">
-                        </div>
+                    <div class="col-sm col-md">
+                        <table class="table" id="tableID">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Item Code</th>
+                                    <th scope="col">Item price</th>
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Total</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model != null && Model.BILDTLs.Count > 0)
+                                {
+                                    foreach (var item in Model.BILDTLs)
+                                    {
+                                        <tr>
+                                            <td scope="col">@item.ITMCOD</td>
+                                            <td scope="col">@item.ITMPRC</td>
+                                            <td scope="col">@item.ITMQTY</td>
+                                            <td scope="col">@(item.ITMPRC * item.ITMQTY)</td>
+                                            <td scope="col"><button class="btn btn-primary" onclick="EditItemRow(@item.ITMCOD)">Edit</button></td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-            </div>
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col-2">Total: @Model.BILPRC</div>
+                    <div class="col"></div>
+                </div>
+                <button class="btn btn-success" type="submit" id="SaveBillUpdates">Save</button>
         </div>
-
-        <div class="panel panel-primary setup-content" id="step-2">
-            <div class="panel-heading">
-                <h3 class="panel-title">Bill Details</h3>
-            </div>
-            <div class="panel-body">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Item name</th>
-                            <th scope="col">Item price</th>
-                            <th scope="col">Quantity</th>
-                            <th scope="col">Total</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>Otto</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>Thornton</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>the Bird</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <button class="btn btn-success pull-right" id="finish">Finish</button>
-            </div>
-        </div>
-
     </div>
 </div>

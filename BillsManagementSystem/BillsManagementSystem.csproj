@@ -6,10 +6,12 @@
 
   <ItemGroup>
     <None Remove="Reports\BillReport.vsrepx" />
+    <None Remove="Reports\BillReport1.vsrepx" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Reports\BillReport.vsrepx" />
+    <EmbeddedResource Include="Reports\BillReport1.vsrepx" />
   </ItemGroup>
 
   <ItemGroup>
@@ -35,6 +37,12 @@
     </Compile>
     <Compile Update="Reports\BillReport.Designer.cs">
       <DependentUpon>BillReport.vsrepx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\BillReport1.cs">
+      <DependentUpon>BillReport1.vsrepx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\BillReport1.Designer.cs">
+      <DependentUpon>BillReport1.vsrepx</DependentUpon>
     </Compile>
   </ItemGroup>
 

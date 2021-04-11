@@ -1,46 +1,49 @@
 ﻿@model IEnumerable<BillsEntity.Models.BILHDR>
+    <div class="card" style="width: 100%;">
+        <div class="card-body" id="cardBillsList">
+            <table class="table table-bordered" style="width:100%" id="billsTable">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">Bill Code</th>
+                        <th scope="col"> Vendor Name</th>
+                        <th scope="col">Bill Price</th>
+                        <th scope="col">Bill Image</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null)
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <th scope="row">@item.BILCOD</th>
+                                <td>@item.VNDCODNavigation.VNDNAM</td>
+                                <td>@item.BILPRC</td>
+                                <td>@item.BILIMG</td>
+                                <td>
+                                    <a href="#cardHead" class="btn btn-primary" onclick="EditBill(@item.BILCOD)">
+                                        <i class="fas fa-edit" aria-hidden="true"></i>
+                                    </a>
+                                    <button class="btn btn-danger" onclick="DeleteBill(@item.BILCOD)">
+                                        <i class="fas fa-trash" aria-hidden="true"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        }
+                    }
 
-<table class="table table-bordered" style="width:100%" id="billsTable">
-    <thead class="thead-light">
-        <tr>
-            <th scope="col">Bill Code</th>
-            <th scope="col"> Vendor Name</th>
-            <th scope="col">Bill Price</th>
-            <th scope="col">Bill Image</th>
-            <th scope="col">Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @if (Model != null)
-        {
-            foreach (var item in Model)
-            {
-                <tr>
-                    <th scope="row">@item.BILCOD</th>
-                    <td>@item.VNDCODNavigation.VNDNAM</td>
-                    <td>@item.BILPRC</td>
-                    <td>@item.BILIMG</td>
-                    <td>
-                        <button class="btn action-edit" onclick="EditBill(@item.BILCOD)">
-                            <i class="fas fa-edit" aria-hidden="true"></i>
-                        </button>
-                        <button class="btn action-delete" onclick="DeleteBill(@item.BILCOD)">
-                            <i class="fas fa-trash" aria-hidden="true"></i>
-                        </button>
-                    </td>
-                </tr>
-            }
-        }
 
-
-    </tbody>
-    <tfoot>
-        <tr>
-            <th scope="col">Bill Code</th>
-            <th scope="col"> Vendor Code</th>
-            <th scope="col">Bill Price</th>
-            <th scope="col">Bill Image</th>
-            <th scope="col">Actions</th>
-        </tr>
-    </tfoot>
-</table>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th scope="col">Bill Code</th>
+                        <th scope="col"> Vendor Code</th>
+                        <th scope="col">Bill Price</th>
+                        <th scope="col">Bill Image</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>

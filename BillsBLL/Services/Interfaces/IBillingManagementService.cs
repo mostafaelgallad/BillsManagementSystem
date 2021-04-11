@@ -13,5 +13,7 @@ namespace BillsBLL.Services.Interfaces
         public BillingManagementServiceResponse<BILHDR> InsertBillHeader(BILHDR billHeader);
         public BillingManagementServiceResponse<BILDTL> InsertBillDetail(BILDTL billDetail, int billCode);
         public bool DeleteBillByBillCode(int billCode);
+        public BillingManagementServiceResponse<BILHDR> GetBillByBillCode(int billCode);
+        public BillingManagementServiceResponse<BILDTL> GetBillItemByItemCode(int itemCode);
     }
 }

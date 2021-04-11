@@ -85,6 +85,23 @@ namespace BillsBLL.Services
             }
         }
 
+        public BillingManagementServiceResponse<BILDTL> GetBillItemByItemCode(int itemCode)
+        {
+            BillingManagementServiceResponse<BILDTL> response = new Services.BillingManagementServiceResponse<BILDTL>();
+            try
+            {
+                response.Data = _billingManagementRepository.GetBillItemByItemCode(itemCode);
+                response.IsSuccess = true;
+                return response;
+            }
+            catch (Exception ex)
+            {
+                response.IsSuccess = false;
+                response.Messeage = "Can't get the item " + Environment.NewLine + ex.Message;
+                return response;
+            }
+        }
+
         public bool DeleteBillByBillCode(int billCode)
         {
             try
@@ -111,6 +128,23 @@ namespace BillsBLL.Services
             {
                 response.IsSuccess = false;
                 response.Messeage = "Can't get bill detail " + Environment.NewLine + ex.Message;
+                return response;
+            }
+        }
+
+        public BillingManagementServiceResponse<BILHDR> GetBillByBillCode(int billCode)
+        {
+            BillingManagementServiceResponse<BILHDR> response = new Services.BillingManagementServiceResponse<BILHDR>();
+            try
+            {
+                response.Data = _billingManagementRepository.GetBillByBillCode(billCode);
+                response.IsSuccess = true;
+                return response;
+            }
+            catch (Exception ex)
+            {
+                response.IsSuccess = false;
+                response.Messeage = "Can't get the bill " + Environment.NewLine + ex.Message;
                 return response;
             }
         }

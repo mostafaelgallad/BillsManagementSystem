@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XtraReportsLayoutSerializer SerializerVersion="20.2.6.0" Ref="1" ControlType="DevExpress.XtraReports.UI.XtraReport, DevExpress.XtraReports.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Name="BillReport1" PageWidth="850" PageHeight="1100" Version="20.2" DataMember="BILDTL" DataSource="#Ref-0" Font="Arial, 9.75pt">
+  <Extensions>
+    <Item1 Ref="2" Key="VSReportExtInfo" Value=".vsrepx" />
+  </Extensions>
+  <Parameters>
+    <Item1 Ref="5" Description="Parameter1" ValueSourceSettings="#Ref-3" ValueInfo="2" Name="BillID" Type="#Ref-4" />
+  </Parameters>
+  <Bands>
+    <Item1 Ref="6" ControlType="TopMarginBand" Name="TopMargin" />
+    <Item2 Ref="7" ControlType="BottomMarginBand" Name="BottomMargin" />
+    <Item3 Ref="8" ControlType="DetailBand" Name="Detail">
+      <Controls>
+        <Item1 Ref="9" ControlType="XRLabel" Name="label1" Multiline="true" Text="label1" SizeF="100,23" LocationFloat="215.625,10.0000067" Padding="2,2,0,0,96">
+          <ExpressionBindings>
+            <Item1 Ref="10" EventName="BeforePrint" PropertyName="Text" Expression="?BillID" />
+          </ExpressionBindings>
+        </Item1>
+      </Controls>
+    </Item3>
+  </Bands>
+  <ComponentStorage>
+    <Item1 Ref="0" ObjectType="DevExpress.DataAccess.Sql.SqlDataSource,DevExpress.DataAccess.v20.2" Name="sqlDataSource1" Base64="PFNxbERhdGFTb3VyY2UgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxDb25uZWN0aW9uIE5hbWU9IkRUU0Fzc2lnbm1lbnREQiIgRnJvbUFwcENvbmZpZz0idHJ1ZSIgLz48UXVlcnkgVHlwZT0iU2VsZWN0UXVlcnkiIE5hbWU9IkJJTERUTCI+PFRhYmxlcz48VGFibGUgTmFtZT0iQklMRFRMIiAvPjwvVGFibGVzPjxDb2x1bW5zPjxDb2x1bW4gVGFibGU9IkJJTERUTCIgTmFtZT0iRFRMQ09EIiAvPjxDb2x1bW4gVGFibGU9IkJJTERUTCIgTmFtZT0iQklMQ09EIiAvPjxDb2x1bW4gVGFibGU9IkJJTERUTCIgTmFtZT0iSVRNQ09EIiAvPjxDb2x1bW4gVGFibGU9IkJJTERUTCIgTmFtZT0iSVRNUFJDIiAvPjxDb2x1bW4gVGFibGU9IkJJTERUTCIgTmFtZT0iSVRNUVRZIiAvPjwvQ29sdW1ucz48L1F1ZXJ5PjxSZXN1bHRTY2hlbWE+PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9IkJJTERUTCI+PEZpZWxkIE5hbWU9IkRUTENPRCIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9IkJJTENPRCIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9IklUTUNPRCIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9IklUTVBSQyIgVHlwZT0iRGVjaW1hbCIgLz48RmllbGQgTmFtZT0iSVRNUVRZIiBUeXBlPSJJbnQzMiIgLz48L1ZpZXc+PC9EYXRhU2V0PjwvUmVzdWx0U2NoZW1hPjxDb25uZWN0aW9uT3B0aW9ucyBDbG9zZUNvbm5lY3Rpb249InRydWUiIC8+PC9TcWxEYXRhU291cmNlPg==" />
+  </ComponentStorage>
+  <ObjectStorage>
+    <Item1 Ref="3" ObjectType="DevExpress.XtraReports.Parameters.DynamicListLookUpSettings, DevExpress.Printing.v20.2.Core" DataSource="#Ref-0" DataMember="BILDTL" ValueMember="BILCOD" DisplayMember="BILCOD" />
+    <Item2 ObjectType="DevExpress.XtraReports.Serialization.ObjectStorageInfo, DevExpress.XtraReports.v20.2" Ref="4" Content="System.Int32" Type="System.Type" />
+  </ObjectStorage>
+</XtraReportsLayoutSerializer>

@@ -3,6 +3,11 @@ using BillsBLL.Services.Interfaces;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using BillsEntity.Models;
+using BillsManagementSystem.Reports;
+using DevExpress.DataAccess.ObjectBinding;
+using BillsManagementSystem.Models;
+using Microsoft.Extensions.Primitives;
+using System.Linq;
 
 namespace BillsManagementSystem.Controllers
 {
@@ -26,9 +31,32 @@ namespace BillsManagementSystem.Controllers
             return View();
         }
 
+        public IActionResult formTest(IEnumerable<formViewModel> model)
+        { 
+            var gh = Request.Query["itemPrice"];
+            var ghs = Request.Query["itemPrice[]"];
+            var dict = Request.Form.ToDictionary(x => x.Key, x => x.Value.ToString());
+            var v = dict["itemPrice"];
+            var X = dict["itemPrice[]"];
+            return View();
+        }
+
         public IActionResult ReportViewer()
         {
-            return View();
+            var Source = _billingManagementService.GetBillDetailByBillCode(88);
+            BillReport rep = new BillReport();
+            rep.DataSource = Source.Data;
+
+            BillReport1 report = new BillReport1();
+            Parameter parameter = new Parameter()
+            {
+
+            };
+            report.Parameters.Add(new DevExpress.XtraReports.Parameters.Parameter { Name = "BillId",
+                Type = typeof(System.DateTime),
+                Value = 88 });
+
+            return View(rep);
         }
 
         [HttpGet("BillManagment/UpdateBillsList")]
@@ -38,11 +66,11 @@ namespace BillsManagementSystem.Controllers
             return PartialView("PV_BillingList", bills.Data);
         }
 
-        [HttpGet("BillManagment/EditBill")]
-        public PartialViewResult EditBill()
+        [HttpGet("BillManagment/EditBill/{billCode}")]
+        public PartialViewResult EditBill(int billCode)
         {
-            //var bills = _billingManagementService.GetAllBills();
-            return PartialView("PV_EditBill");
+            var bills = _billingManagementService.GetBillByBillCode(billCode);
+            return PartialView("PV_EditBill", bills.Data);
         }
 
         [HttpDelete("BillManagment/deleteBillByBillCode/{billCode}")]
@@ -69,7 +97,17 @@ namespace BillsManagementSystem.Controllers
             return null;
         }
 
-        
+        [HttpGet("BillManagment/GetBillItemByItemCode/{itemCode}")]
+        public JsonResult GetBillItemByItemCode(int itemCode)
+        {
+            var items = _billingManagementService.GetBillItemByItemCode(itemCode);
+            if (items.IsSuccess && items.Data != null)
+            {
+                return Json(items.Data);
+            }
+            return null;
+        }
+
         public ActionResult<IEnumerable<SelectListItem>> GetAllVendors()
         {
             var items = _billingManagementService.GetAllVendors();

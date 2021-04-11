@@ -15,5 +15,7 @@ namespace BillsDAL.Repositories.Interfaces
         public BILHDR GetBillheaderByCode(int billCode);
         public bool UpdateBillHeader(BILHDR billHeader);
         public bool DeleteBillByBillCode(int billCode);
+        public BILHDR GetBillByBillCode(int billCode);
+        public BILDTL GetBillItemByItemCode(int itemCode);
     }
 }

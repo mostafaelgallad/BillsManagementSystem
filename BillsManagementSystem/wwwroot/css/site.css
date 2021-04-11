@@ -1,6 +1,15 @@
-﻿/*body {
-    margin-top: 30px;
-}*/
+﻿.picDiv {
+    max-height: 100% !important;
+    max-width: 100% !important;
+}
+
+.swal2-container .swal2-popup {
+    width: inherit;
+    height: inherit;
+}
+body {
+    margin-top: 0;
+}
 
 .stepwizard-step p {
     margin-top: 0px;
@@ -44,14 +53,6 @@
     position: relative;
 }
 
-.picDiv {
-    max-height: 100% !important;
-    max-width: 100% !important;
-}
-.swal2-container .swal2-popup {
-    width: 50%;
-    height: inherit;
-}
 .btn-circle {
     width: 30px;
     height: 30px;
@@ -63,7 +64,7 @@
 }
 /* Style buttons */
 .action-edit {
-    background-color: DodgerBlue ;   /* Blue background */
+    background-color: DodgerBlue; /* Blue background */
     border: none; /* Remove borders */
     color: white; /* White text */
     padding: 8px 10px; /* Some padding */
@@ -80,7 +81,7 @@
     cursor: pointer; /* Mouse pointer on hover */
 }
 
-    /* Darker background on mouse-over */
+/* Darker background on mouse-over */
 .action-edit:hover {
     background-color: RoyalBlue !important;
 }
